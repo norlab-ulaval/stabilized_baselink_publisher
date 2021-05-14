@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 			
 			tf2::Quaternion quaternion;
 			tf2::fromMsg(robotToOdom.transform.rotation, quaternion);
-			quaternion.setEuler(yaw, 0, 0);
+			quaternion.setRPY(0, 0, yaw);
 
 			geometry_msgs::TransformStamped robotStabilizedToOdom = robotToOdom;
 			robotStabilizedToOdom.child_frame_id = robotFrame + "_stabilized";
